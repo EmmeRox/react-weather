@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function Weather() {
   let [city, setCity] = useState("");
@@ -29,7 +30,7 @@ function Weather() {
   }
 
   let form = (
-    <form className="Search-Bar" onSubmit={handleCity}>
+    <form className="search" onSubmit={handleCity}>
       <input type="search" placeholder="Search a city" onChange={searchCity} />
       <button type="submit" value="search">
         Search
