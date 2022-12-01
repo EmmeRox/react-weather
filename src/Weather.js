@@ -8,6 +8,12 @@ function Weather() {
 
   function displayInfo(response) {
     setAnswer(true);
+    setWeather({
+      temperature: response.data.main.temp,
+      wind: response.date.wind.speed,
+      humidity: response.date.main.humidity,
+      description: response.date.weather[0].description,
+    });
   }
 
   function handleCity(event) {
@@ -31,7 +37,21 @@ function Weather() {
     </form>
   );
 
-  return <div>{form}</div>;
+  if (answer) {
+    return (
+      <div>
+        {form}
+        <ul>
+          <li>Temperature: {weather.temperature}</li>
+          <li>Wind: {weather.wind}</li>
+          <li>Humidity: {weather.humidity}</li>
+          <li>Description: {weather.description}</li>
+        </ul>
+      </div>
+    );
+  } else {
+    return form;
+  }
 }
 
 export default Weather;
